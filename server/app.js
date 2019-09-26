@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db');
+var cors = require('cors');
 
 // Middleware
 var morgan = require('morgan');
@@ -20,6 +21,7 @@ app.use(parser.json());
 
 // Set up our routes
 app.use(router);
+app.use(cors());
 
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));

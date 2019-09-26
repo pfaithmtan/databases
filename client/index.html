@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/underscore/underscore.js"></script>
+    <script>
+      // DO NOT MODIFY THIS CODE
+      if (!/(&|\?)username=/.test(window.location.search)) {
+        var search = window.location.search;
+        if (!/\?/.test(search)) {
+          search += '?';
+        }
+        if (search[search.length - 1] !== '?') {
+          search += '&';
+        }
+        search += 'username=' + (prompt('What is your name?') || 'anonymous');
+        window.location.search = search;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>chatterbox</h1>
+      <div class="spinner"><img src="images/spiffygif_46x46.gif"></div>
+      <div id="rooms">
+        Room:
+        <select>
+          <option value="noroom">No Room Selected</option>
+        </select>
+        <form action="#" id="addRoom" method="post">
+          <input type="text" name="room" id="room"/>
+          <input type="submit" value="Add Room" name="addRoom" class="submit"/>
+        </form>
+      </div>
+      <form action="#" id="send" method="post">
+        <input type="text" name="message" id="message"/>
+        <input type="submit" name="submit" class="submit"/>
+      </form>
+    </div>
+    <button id="refresh" type="button">Refresh Messages</button>
+    <div id="chats">
+    </div>
+    <script src="scripts/parse.js"></script>
+    <script src="scripts/rooms.js"></script>
+    <script src="scripts/friends.js"></script>
+    <script src="scripts/messages.js"></script>
+    <script src="scripts/formView.js"></script>
+    <script src="scripts/roomsView.js"></script>
+    <script src="scripts/messageView.js"></script>
+    <script src="scripts/messagesView.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+      $(() => App.initialize());
+    </script>
+  </body>
+</html>
